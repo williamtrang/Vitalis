@@ -34,7 +34,7 @@ div {
 img{
     margin: 2vh;
 }
-p{
+p id{
     font-family: Cambria, 'Times New Roman', Times, serif;
     color: gray;
 }
