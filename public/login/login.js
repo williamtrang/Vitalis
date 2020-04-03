@@ -4,6 +4,7 @@ firebase.initializeApp(firebaseConfig);
 const AUTH = firebase.auth();
 
 document.getElementById("signUp").addEventListener("click", function(){
+    document.getElementById("signUp").style.color = "blue";
     location.assign("../signup/signup.html");
 });
 
