@@ -1,3 +1,10 @@
+html {
+    height: 100%;
+    background-image: url("../assets/boops.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 body {
     text-align:center;
     display: inline-block;
@@ -5,8 +12,6 @@ body {
     padding-bottom: 10vh;
     padding-left: 10vw;
     padding-right: 10vw;
-    background-image: url("../assets/background_login.jpg");
-    background-repeat: no-repeat;
 }
 button {
     width: 30vh;
@@ -19,7 +24,7 @@ button {
 input{
     font-family: Cambria, 'Times New Roman', Times, serif;
     font-size: 4vw;
-    margin: 1vh;
+    margin: 0.5vh;
 }
 div {
     text-align: center;
