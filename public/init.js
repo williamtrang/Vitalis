@@ -1,4 +1,3 @@
-
 let firebaseConfig = {
     apiKey: "AIzaSyC56rsEmO7kBU6esLy_UOYML1jLIOc3mps",
     authDomain: "vitalisapp.firebaseapp.com",
