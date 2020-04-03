@@ -5,6 +5,7 @@ const AUTH = firebase.auth();
 const DATABASE = firebase.database();
 
 document.getElementById("signIn").addEventListener("click", function(){
+    document.getElementById("signIn").style.color = "blue";
     location.assign("../login/login.html");
 });
 
