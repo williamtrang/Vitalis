@@ -1,18 +1,35 @@
 body {
     text-align:center;
     display: inline-block;
-    border: 150px;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    background-image: url("background_login.jpg");
+    background-repeat: no-repeat;
 }
 button {
-    border-radius: 2px;
-    width: 250px;
-    color: green
+    width: 25vh;
+    height: 3vh;
+    margin: 1vh;
+    color: white;
+    background-color: #FDAF7E;
+    border: #C47115;
 }
 input{
-    font-family: Cambria;
-    font-size: 14px;
+    font-family: Cambria, 'Times New Roman', Times, serif;
+    font-size: 4vw;
+    margin: 1vh;
 }
 div {
     text-align: center;
-    padding: 20px;
+    padding: 3vw;
+    background-color: white;
+}
+img{
+    margin: 2vh;
+}
+p{
+    font-family: Cambria, 'Times New Roman', Times, serif;
+    color: gray;
 }
