@@ -1,5 +1,4 @@
 import {firebaseConfig} from "../init.js"
-
 firebase.initializeApp(firebaseConfig);
 
 const AUTH = firebase.auth();
