@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password?</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "../global.css">
+    <link rel = "stylesheet" type = "text/css" href = "forgotpass.css">
+    <script type = "module" src = "../init.js"></script>
+    <script type = "module" src = "forgotpass.js" defer></script>
+</head>
+<body>
+    <div id = "preReset">
+        <h2 id = "resetTitle">Password Reset</h2>
+        <p id = "resetDesc">To reset your password, enter the email you used to sign in to <span>Vertalis</span>.</p>
+        <input type = "text" id = "email" placeholder = "email">
+        <button type = "button" id = "submitBtn">SUBMIT</button>
+    </div>
+    <div id = "postReset">
+        <h2 id = "postResetTitle">Thank you!</h2>
+        <p id = "postResetDesc">An link has been sent to your email to reset your password.</p>
+        <button type = "button" id = "homeBtn">back to home</button>
+    </div>
+
+    <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
+</body>
+</html>
