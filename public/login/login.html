@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitalis</title>
-    <link rel = "stylesheet" type = "text.css" href = "login.css">
-    <link rel = "stylesheet" type = "text.css" href = "global.css">
+    <link rel = "stylesheet" type = "text/css" href = "login.css">
+    <link rel = "stylesheet" type = "text/css" href = "../global.css">
+    <script type = "module" src = "../init.js"></script>
+    <script type = "module" src = "login.js" defer></script>
 </head>
 <body>
     <input type = "text" id = "username" placeholder = "email">
@@ -13,8 +15,8 @@
     <p id = "signUp">don't have an account?</p>
     <button type = "button">LOGIN</button>
 
-    <script src="/__/firebase/7.13.2/firebase-app.js"></script>
-    <script src="/__/firebase/7.13.2/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
+    <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
+    <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/init.js"></script>
 </body>
 </html>
