@@ -5,12 +5,12 @@ body {
     padding-bottom: 10vh;
     padding-left: 10vw;
     padding-right: 10vw;
-    background-image: url("background_login.jpg");
+    background-image: url("../assets/background_login.jpg");
     background-repeat: no-repeat;
 }
 button {
-    width: 25vh;
-    height: 3vh;
+    width: 30vh;
+    height: 5vh;
     margin: 1vh;
     color: white;
     background-color: #FDAF7E;
