@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitalis Login</title>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "login.css">
     <link rel = "stylesheet" type = "text/css" href = "../global.css">
     <script type = "module" src = "../init.js"></script>
@@ -11,16 +12,27 @@
 </head>
 <body>
     <div>
+<<<<<<< HEAD
     <a href ="vitalis_logo.jpg"><img src="vitalis_logo.jpg" alt="logo" width="246" height="96"></a>
     <input type = "text" id = "username" placeholder = "email">
     <input type = "password" id = "password" placeholder = "password">
     <button type = "button">LOGIN</button> 
     <p id = "signUp">Don't have an account?</p>
     <p id = "forgotPass">Forgot password?</p>
+=======
+        <a href ="../assets/vitalis_logo.jpg"><img src="../assets/vitalis_logo.jpg" alt="logo" width="246" height="96"></a>
+        <br>
+        <input type = "text" id = "username" placeholder = "email"><br><br>
+        <input type = "password" id = "password" placeholder = "password"><br><br>
+        <button type = "button" id = "loginBtn">LOGIN</button> 
+        <p id = "signUp">Don't have an account?</p>
+        <p id = "forgotPass">Forgot password?</p>
+>>>>>>> caf8d07eab94c35ecaa6a687ec08cfb8b7a7ea38
     </div>
-
+    
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
     <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
+    <script defer src="/__/firebase/7.13.2/firebase-auth.js"></script>
     <script defer src="/__/firebase/init.js"></script>
 </body>
 </html>
