@@ -10,7 +10,7 @@ document.getElementById("signUp").addEventListener("click", function(){
 document.getElementById("loginBtn").addEventListener("click", e => {
     AUTH.signInWithEmailAndPassword(document.getElementById("username").value, document.getElementById("password").value).then(() => {
         //TODO: CHANGE THIS TO THE RIGHT LOCATION
-        window.location.href = "../signup/signup.html";
+        window.location.href = "../tempPostLogin.html";
     }).catch(e => {
         alert("Login failed!");
         document.getElementById("password").value = "";
