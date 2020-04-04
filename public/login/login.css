@@ -22,7 +22,6 @@ h3 {
     font-size: 6vw;
     margin-top: 2vw;
     color: grey;
-
 }
 button {
     width: 30vh;
@@ -49,17 +48,13 @@ div {
     margin-top: 20vh;
     border-radius: 25px;
 }
-span { 
-    color: lightskyblue;
-    font-weight: bold;
-}
 h2 {
     margin-bottom: 2vw;
 }
 p {
     margin: 2vw;
-    font-weight: bold;
     color: grey;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 img {
     margin-top: 1vh;
