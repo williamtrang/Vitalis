@@ -1,6 +1,7 @@
 html {
     height: 100%;
     background-image: url("../assets/background4.png");
+    /*background-image: linear-gradient(to top, lightpink, lightblue);*/
     background-repeat: none;
     background-size: cover;
     background-position: center;
@@ -9,48 +10,59 @@ body{
     text-align:center;
     display: inline-block;
     padding-bottom: 10vh;
-    padding-left: 10vw;
-    padding-right: 10vw;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 #postReset{
     display: none;
+    margin-top: 25vh;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+    border-radius: 25px;
+    padding-top: 1vh;
+    padding-bottom: 3vh;
+    margin-left: 5.5vw;
+    margin-right: 5.5vw;
 }
 #preReset{
     display: inline-block;  
+    margin-top: 25vh;;
+    /*background-color: rgba(255, 255, 255, 0.5);*/
+    border-radius: 25px;
     padding-top: 1vh;
-    margin-top: 75%;
+    padding-bottom: 3vh;
+    margin-left: 5.5vw;
+    margin-right: 5.5vw;
 }
-#resetTitle {
+h2 {
     font-size: 12vw;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: black;
     padding-top: none;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
-#resetDesc {
+p {
     padding-top: 2vw;
     margin-bottom: 2vw;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: gray;
 }
 input{
     font-family: Cambria, 'Times New Roman', Times, serif;
     font-size: 4vw;
-    margin-top: 0.5vh;
-    margin-bottom: 1vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     padding: 1.5vw;
 }
-#submitBtn {
+button {
     width: 30vh;
     height: 5vh;
-    margin: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
     color: white;
     background-image: linear-gradient(to right, pink, lightblue);
     border-radius: 25px;
     border: white;
     font-weight: bold;
-    font-size: 4vw;
-}
-p {
-    margin: 2vw;
-    color: grey;
-    font-family: 'Segoe UI', Cambria, Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 5vw;
 }

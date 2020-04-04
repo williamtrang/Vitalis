@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    /*background-image: linear-gradient(to top, lightpink, lightblue);*//*whichever background is fine*/
     background-image: url("../assets/background4.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -32,7 +33,7 @@ button {
     border-radius: 25px;
     border: white;
     font-weight: bold;
-    font-size: 4vw;
+    font-size: 5vw;
 }
 input{
     font-family: Cambria, 'Times New Roman', Times, serif;
@@ -47,6 +48,7 @@ div {
     padding-bottom: 3vh;
     margin-top: 20vh;
     border-radius: 25px;
+    /*background-color: rgba(255, 255, 255, 0.5);*//*if linear gradient full background, keep line*/
 }
 h2 {
     margin-bottom: 2vw;
