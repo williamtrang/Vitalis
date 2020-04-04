@@ -1,5 +1,5 @@
 body{
-    background-image: url("../assets/gradient1.png");
+    background-image: url("../assets/background1.png");
     background-repeat: none;
     background-size: cover;
 }
@@ -13,7 +13,6 @@ body{
     margin-left: 20%;
     margin-right: 20%;
     padding: 4vw;
-    background-color: rgb(255,255,255,0.6);
 }
 #resetTitle {
     font-size: 4vh;
