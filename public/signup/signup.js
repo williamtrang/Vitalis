@@ -10,13 +10,14 @@ document.getElementById("signIn").addEventListener("click", function(){
 });
 
 document.getElementById("signUpBtn").addEventListener("click", e => {
+    //TODO: CHECK THAT ALL THE FIELDS ARE COMPLETED
     if(document.getElementById("password").value == document.getElementById("confirmPass").value){
         AUTH.createUserWithEmailAndPassword(document.getElementById("username").value, document.getElementById("password").value).then(() => {
             DATABASE.ref("users/"+AUTH.currentUser.uid).set({
-				forename: document.getElementById("firstName").value,
+                forename: document.getElementById("firstName").value,
                 surname: document.getElementById("lastName").value,
                 email: document.getElementById("username").value,
-			}).then(() => window.location.href = "../login/login.html");
+            }).then(() => window.location.href = "../login/login.html");
         }).catch(e => alert(e));
     }
     else {
