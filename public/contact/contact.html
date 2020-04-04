@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitalis Login</title>
+    <title>Contact</title>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "../global.css">
     <link rel = "stylesheet" type = "text/css" href = "contact.css">
@@ -11,8 +11,29 @@
     <script type = "module" src = "contact.js" defer></script>
 </head>
 <body>
-    <div>
-        <button type = "button" id = "inputCnct">Add Contact</button>
+    <div id = "contactList">
+        <button type = "button" id = "contactBtn">Add Contact</button>
+    </div>
+
+    <div id = "addContact">
+        <div id = "contactType">
+            <input type = "radio" id = "doctor" name = "contact" value = "doctor">
+            <label for = "doctor">Doctor</label>
+            <input type = "radio" id = "hospital" name = "contact" value = "hospital">
+            <label for = "hospital">Hospital</label>
+            <input type = "radio" id = "emergency" name = "contact" value = "emergency">
+            <label for = "emergency">Emergency Contact</label>
+            <input type = "radio" id = "work" name = "contact" value = "work">
+            <label for = "work">Work</label>
+            <input type = "radio" id = "other" name = "contact" value = "other">
+            <label for = "other">Other</label>
+            <input type = "text" id = "otherInput" placeholder = "other">
+            <button type = "button" id = "nextBtn">Next</button>
+        </div>
+        <div id = "addContactInfo">
+            <!--name, phone number, email, address, description-->
+            <button type = "button" id = "finishBtn">Done!</button>
+        </div>
     </div>
     
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
