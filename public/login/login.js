@@ -14,6 +14,7 @@ document.getElementById("forgotPass").addEventListener("click", function(){
 });
 
 document.getElementById("loginBtn").addEventListener("click", e => {
+    document.getElementById("loginBtn").style.color = "darkorange";
     AUTH.signInWithEmailAndPassword(document.getElementById("username").value, document.getElementById("password").value).then(() => {
         //TODO: CHANGE THIS TO THE RIGHT LOCATION
         window.location.href = "../tempPostLogin.html";
