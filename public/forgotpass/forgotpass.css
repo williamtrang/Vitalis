@@ -1,3 +1,33 @@
+body{
+    background-image: url("../assets/gradient1.png");
+    background-repeat: none;
+    background-size: cover;
+}
 #postReset{
     display: none;
+}
+#preReset{
+    display: inline-block;  
+    margin-top: 50%;
+    margin-bottom: 50%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 4vw;
+    background-color: rgb(255,255,255,0.6);
+}
+#resetTitle {
+    font-size: 4vh;
+}
+#resetDesc {
+    padding-top: 2vw;
+    margin-bottom: 2vw;
+}
+input{
+    margin-top: 2vw;
+    padding: 2vw;
+}
+button{
+    position: relative;
+    margin-top: 100%;
+    margin-left: 75%;
 }
