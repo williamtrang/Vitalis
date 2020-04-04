@@ -1,22 +1,30 @@
-body{
-    background-image: url("../assets/background1.png");
+html {
+    height: 100%;
+    background-image: url("../assets/background4.png");
     background-repeat: none;
     background-size: cover;
+    background-position: center;
+}
+body{
+    text-align:center;
+    display: inline-block;
+    padding-bottom: 10vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 #postReset{
     display: none;
 }
 #preReset{
     display: inline-block;  
-    margin-top: 50%;
-    margin-bottom: 50%;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding: 4vw;
+    padding-top: 1vh;
+    margin-top: 75%;
 }
 #resetTitle {
-    font-size: 4vh;
+    font-size: 12vw;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: black;
+    padding-top: none;
 }
 #resetDesc {
     padding-top: 2vw;
@@ -24,9 +32,25 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 input{
-    margin-top: 2vw;
-    padding: 2vw;
+    font-family: Cambria, 'Times New Roman', Times, serif;
+    font-size: 4vw;
+    margin-top: 0.5vh;
+    margin-bottom: 1vh;
+    padding: 1.5vw;
 }
-#homeBtnTwo{
-    border: none;
+#submitBtn {
+    width: 30vh;
+    height: 5vh;
+    margin: 1vh;
+    color: white;
+    background-image: linear-gradient(to right, pink, lightblue);
+    border-radius: 25px;
+    border: white;
+    font-weight: bold;
+    font-size: 4vw;
+}
+p {
+    margin: 2vw;
+    color: grey;
+    font-family: 'Segoe UI', Cambria, Tahoma, Geneva, Verdana, sans-serif;
 }
