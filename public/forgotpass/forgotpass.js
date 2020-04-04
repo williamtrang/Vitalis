@@ -2,6 +2,7 @@ import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
 let homeBtn = document.getElementById("homeBtn");
+let homeBtn2 = document.getElementById("homeBtnTwo");
 let submitBtn = document.getElementById("submitBtn");
 const AUTH = firebase.auth();
 
@@ -18,5 +19,9 @@ submitBtn.addEventListener("click", function(){
 });
 
 homeBtn.addEventListener("click", function(){
+    location.assign("../login/login.html");
+});
+
+homeBtn2.addEventListener("click", function(){
     location.assign("../login/login.html");
 });
