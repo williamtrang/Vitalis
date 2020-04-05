@@ -14,6 +14,7 @@ document.getElementById("signIn").addEventListener("click", function(){
 //inputted info and store info in database
 document.getElementById("signUpBtn").addEventListener("click", e => {
     //TODO: CHECK THAT ALL THE FIELDS ARE COMPLETED
+    
     if(document.getElementById("password").value == document.getElementById("confirmPass").value){
         AUTH.createUserWithEmailAndPassword(document.getElementById("username").value, document.getElementById("password").value).then(() => {
             DATABASE.ref("users/"+AUTH.currentUser.uid).set({

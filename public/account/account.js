@@ -9,9 +9,10 @@ let settingsBtn = document.getElementById("settingsBtn");   //btn to access sett
 let backBtn = document.getElementById("backBtn");           //btn to go back to account page
 let mainPage = document.getElementById("mainPage");         //main page of account tab
 let settingsPage = document.getElementById("settingsPage"); //settings page of account tab
+let tempBtn = document.getElementById("tempBtn");
 
 //update name and email fields with user's name and email
-AUTH.onAuthStateChanged(function(user){
+AUTH.onAuthStateChanged(function(user) {
     //if user is not signed in, return to login page
     if(!user){
         location.assign("../login/login.html");
@@ -43,4 +44,8 @@ backBtn.addEventListener("click", function(){
 logoutBtn.addEventListener("click", function(){
     AUTH.signOut();
     location.assign("../login/login.html");
+});
+
+tempBtn.addEventListener("click", function(){
+    location.assign("../contact/contact.html");
 });
