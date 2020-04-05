@@ -19,8 +19,8 @@ AUTH.onAuthStateChanged(function(user) {
 });
 
 addActBtn.addEventListener("click", function(){
-    addActivityPage.style.display = "none";
-    mainPage.style.display = "inline-block";
+    addActivityPage.style.display = "inline-block";
+    mainPage.style.display = "none";
 
     if(document.getElementById("titleInput").value != "" && document.getElementById("actTypeInput").value != "" && document.getElementById("durationInput").value != ""){
         //database stuff

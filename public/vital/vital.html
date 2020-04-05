@@ -39,8 +39,36 @@
 
     <div id = "addVitalsPage">
         <!--IDK HOW YOU WANNA DO THIS-->
-        <input type = "text" id = "pulseInput" placeholder = "pulse">
-        <input type = "text" id = "sugarInput" placeholder = "blood sugar">
+        <div id = "dropdown">
+            <select id = "vitalChoice">
+                <option value = "pulse">Pulse</option>
+                <option value = "bSugar">Blood Sugar</option>
+                <option value = "temp">Temperature</option>
+                <option value = "respRate">Respiratory Rate</option>
+                <option value = "mood">Mood</option>
+            </select>
+        </div>
+
+        <div id = "pulsePage" class = "vitalPages">
+            <input type = "text" id = "pulseInput" placeholder = "pulse">
+        </div>
+
+        <div id = "bSugarPage" class = "vitalPages">
+            <input type = "text" id = "sugarInput" placeholder = "blood sugar">
+        </div>
+
+        <div id = "tempPage" class = "vitalPages">
+
+        </div>
+
+        <div id = "respPage" class = "vitalPages">
+
+        </div>
+
+        <div id = "moodPage" class = "vitalPages">
+
+        </div>
+
         <button type = "button" id = "backBtn">BACK</button>
         <button type = "button" id = "finishBtn">ADD</button>
     </div>

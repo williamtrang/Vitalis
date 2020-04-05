@@ -63,3 +63,11 @@ h1 {
 #addVitalsPage{
     display: none;
 }
+
+.vitalPages {
+    display: none;
+}
+
+#pulsePage {
+    display: block;
+}
