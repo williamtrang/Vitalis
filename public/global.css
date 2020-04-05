@@ -24,12 +24,14 @@ html {
 }
 .navBarH {
     display: inline;
+    padding: 0;
 }
 .navBarIcons{
     width: 12%;
     height: 12%;
     margin-top: 0.5vh;
     margin-bottom: 0.5vh;
-    border-right: 1vw;
-    border-left: 1vw;
+    margin-right:0;
+    margin-left: 0;
+    padding: 1.5vw;
 }
