@@ -8,6 +8,35 @@ const finishBtn = document.getElementById("finishBtn");
 const addVitalsPage = document.getElementById("addVitalsPage");
 const mainPage = document.getElementById("mainPage");
 
+let day = new Date();
+let date = document.getElementById("date");
+let weekday = document.getElementById("dayOfWeek");
+
+let month_dict = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December"
+};
+
+let weekday_dict = {
+    0: "Sunday",
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday"
+}
+
 //TODO IF TIME: ADD ANIMATIONS AND NOT A COMPLETELY NEW SCREEN FOR ADDING STUFF
 //TODO: DISPLAY VITALS IN CALENDAR AND STUFF
 //TODO: CALENDAR BUTTON AND DIFF VIEW BTN FUNCTIONALITY
@@ -17,6 +46,9 @@ AUTH.onAuthStateChanged(function(user) {
         location.assign("../login/login.html");
         return;
     }
+
+    weekday.innerText = weekday_dict[day.getDay()];
+    date.innerText = month_dict[(day.getMonth()+1)] + " " + day.getDate() + ", " + day.getFullYear();
 });
 
 addVitalBtn.addEventListener("click", function(){
