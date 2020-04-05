@@ -1,6 +1,8 @@
 import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
+const AUTH = firebase.auth();
+
 //if user is not signed in, return to login page
 AUTH.onAuthStateChanged(function(user) {
     if(!user){
