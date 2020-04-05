@@ -1,11 +1,6 @@
 import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
-const AUTH = firebase.auth();
-const DATABASE = firebase.database();
-
-//TODO: ADD ACTIVITY FUNCTIONALITY TO DATABASE AND DISPLAY ACTIVITIES IN ACTIVITY LIST
-
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------
 document.getElementById("activityIcon").addEventListener("click", function(){
     location.assign("../activity/activity.html");
@@ -31,10 +26,3 @@ document.getElementById("vitalIcon").addEventListener("click", function(){
     location.assign("../vital/vital.html");
 });
 //------------------------------------------------------END NAVBAR------------------------------------------------------
-
-//if user is not signed in, return to login page
-AUTH.onAuthStateChanged(function(user) {
-    if(!user){
-        location.assign("../login/login.html");
-    }
-});
