@@ -1,7 +1,9 @@
 import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
+const AUTH = firebase.auth();
 const DATABASE = firebase.database();
+
 let contactBtn = document.getElementById("contactBtn");         //btn to add contact
 let contactList = document.getElementById("contactList");       //list of contacts
 let addContactDiv = document.getElementById("addContact");      //adding contact information div
@@ -11,6 +13,13 @@ let nextBtn = document.getElementById("nextBtn");               //btn to move fr
 let finishBtn = document.getElementById("finishBtn");           //btn to finalize adding contact
 let backToListBtn = document.getElementById("backToList");      //back btn to go back to contact list
 let backToTypeBtn = document.getElementById("backToType");      //back btn to go back to contact type
+
+//if user is not signed in, return to login page
+AUTH.onAuthStateChanged(function(user) {
+    if(!user){
+        location.assign("../login/login.html");
+    }
+});
 
 //TODO: ADD REAL FUNCTIONALITY TO THESE BUTTONS LOL AND MAKE THE CONTACT LIST ABLE TO ADD CONTACTS
 //begin the add contact process
@@ -27,17 +36,33 @@ nextBtn.addEventListener("click", function(){
     contactType.style.display = "none";
 });
 
+//TODO: VERIFY THAT AT LEAST NAME AND DESCRIPTION ARE FILLED
 //finish adding contact and process and clear selections
 finishBtn.addEventListener("click", function(){
+    let radioList = document.getElementsByName("contact");
     contactList.style.display = "inline-block";
     addContactDiv.style.display = "none";
+    let val = "";
 
-    /* clear selections */
-    let radioList = document.getElementsByName("contact");
+    //find checked radio button and clear the radio selections
     for(let i = 0; i < radioList.length; i++){
+        if(radioList[i].checked){
+            val = radioList[i].value;
+        }
         radioList[i].checked = false;
     }
 
+    //add inputted information into database
+    DATABASE.ref("contacts/" + AUTH.currentUser.uid + "/" + document.getElementById("nameInput").value).set({
+        type: val,
+        name: document.getElementById("nameInput").value,
+        address: document.getElementById("addressInput").value,
+        phoneNumber: document.getElementById("numberInput").value,
+        email: document.getElementById("emailInput").value,
+        description: document.getElementById("descInput").value,
+    });
+
+    /* clear selections */
     document.getElementById("nameInput").value = "";
     document.getElementById("addressInput").value = "";
     document.getElementById("numberInput").value = "";
