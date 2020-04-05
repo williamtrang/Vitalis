@@ -11,13 +11,15 @@
     <script type = "module" src = "signup.js" defer></script>
 </head>
 <body>
+    <h2 id="signUpTitle">Create an Account</h2>
     <input type = "text" id = "firstName" placeholder = "first name">
     <input type = "text" id = "lastName" placeholder = "last name">
+    <p id = "desc">This will be used when you login.</p>
     <input type = "text" id = "username" placeholder = "email">
     <input type = "password" id = "password" placeholder = "password">
     <input type = "password" id = "confirmPass" placeholder = "confirm password">
-    <p id = "signIn">have an account?</p>
     <button type = "button" id = "signUpBtn">SIGN UP</button>
+    <p id = "signIn">Already have an account?</p>
 
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
     <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
