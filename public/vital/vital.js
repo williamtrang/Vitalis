@@ -25,7 +25,7 @@ addVitalBtn.addEventListener("click", function(){
 });
 
 backBtn.addEventListener("click", function(){
-    mainPage.style.display = "inline-block";
+    mainPage.style.display = "block";
     addVitalsPage.style.display = "none";
 
     document.getElementById("pulseInput").value = "";
@@ -33,7 +33,7 @@ backBtn.addEventListener("click", function(){
 });
 
 finishBtn.addEventListener("click", function(){
-    mainPage.style.display = "inline-block";
+    mainPage.style.display = "block";
     addVitalsPage.style.display = "none";
 
     //TODO: PROCESS INFO AND STORE IN DB
