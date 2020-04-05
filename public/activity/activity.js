@@ -3,6 +3,10 @@ firebase.initializeApp(firebaseConfig);
 
 const AUTH = firebase.auth();
 const DATABASE = firebase.database();
+const mainPage = document.getElementById("mainPage");
+const addActivityPage = document.getElementById("addActivityPage");
+const backBtn = document.getElementById("backBtn");
+const addActBtn = document.getElementById("addActBtn");
 
 //TODO: ADD ACTIVITY FUNCTIONALITY TO DATABASE AND DISPLAY ACTIVITIES IN ACTIVITY LIST
 
@@ -11,6 +15,24 @@ AUTH.onAuthStateChanged(function(user) {
     if(!user){
         location.assign("../login/login.html");
     }
+});
+
+addActBtn.addEventListener("click", function(){
+    addActivityPage.style.display = "none";
+    mainPage.style.display = "inline-block";
+
+    document.getElementById("titleInput").value = "";
+    document.getElementById("actTypeInput").value = "";
+    document.getElementById("durationInput").value = "";
+});
+
+backBtn.addEventListener("click", function(){
+    addActivityPage.style.display = "none";
+    mainPage.style.display = "inline-block";
+
+    document.getElementById("titleInput").value = "";
+    document.getElementById("actTypeInput").value = "";
+    document.getElementById("durationInput").value = "";
 });
 
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------
