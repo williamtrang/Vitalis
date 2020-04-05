@@ -1,6 +1,6 @@
 html {
     height: 100%;
-    /*background-image: linear-gradient(to top, lightpink, lightblue);*//*whichever background is fine*/
+    background-image: linear-gradient(to top, lightpink, lightblue);
     background-image: url("../assets/background4.png");
     background-repeat: no-repeat;
     background-size: cover;
