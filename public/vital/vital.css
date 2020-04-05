@@ -2,3 +2,15 @@ body {
     text-align:center;
     display: inline-block;
 }
+#addIcon {
+    height: 25%;
+    width: 25%;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+#addVital{
+    background-color: white;
+    width: 30vw;
+    height: 15vh;
+    border-radius: 25px;
+}

@@ -41,6 +41,9 @@ input{
     margin-top: 0.5vh;
     margin-bottom: 1vh;
     padding: 1.5vw;
+    border-style: none none solid none;
+    border-width: 0.25vw;
+    border-color: grey;
 }
 div {
     text-align: center;
