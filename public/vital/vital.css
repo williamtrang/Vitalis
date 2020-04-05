@@ -63,3 +63,7 @@ h1 {
     padding-top:1vh;
     margin-bottom: 3vh;
 }
+
+#addVitalsPage{
+    display: none;
+}
