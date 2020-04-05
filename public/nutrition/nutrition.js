@@ -1,6 +1,13 @@
 import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
+//if user is not signed in, return to login page
+AUTH.onAuthStateChanged(function(user) {
+    if(!user){
+        location.assign("../login/login.html");
+    }
+});
+
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------
 document.getElementById("activityIcon").addEventListener("click", function(){
     location.assign("../activity/activity.html");
