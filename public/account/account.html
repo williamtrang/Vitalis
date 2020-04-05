@@ -13,22 +13,25 @@
 <body>
     <div id = "mainPage">
         <img src = "../assets/leaf_logo.png" id = "profilePic"> <!-- TODO: update with picture of anonymous person and option to add a profile picture-->
-        <p id = "username">Kwin Leh</p> <!-- TODO: UPDATE WITH USER'S ACTUAL NAME-->
-        <input type = "text" id = "nicknameInput" placeholder = "nickname">
-        <p id = "email">quyenkle.it@gmail.com</p><!-- TODO: REPLACE WITH USER'S ACTUAL EMAIL JS-->
+        <p id = "username">Kwin Leh</p> 
+        <!--<input type = "text" id = "nicknameInput" placeholder = "nickname">--> <!--GET TO THIS WHEN I FEEL LIKE IT-->
+        <p id = "email">quyenkle.it@gmail.com</p>
         <button type = "button" id = "settingsBtn">SETTINGS</button> <!-- TODO: replace with picture of gear for settings :'D -->
         <button type = "button" id = "logoutBtn">LOGOUT</button>
-        <nav class="global">
-            <div class="navbar">
-                <h1>navigation element</h1>
-            </div>
-        </nav>
     </div>
+
     <div id = "settingsPage">
         <button type = "button" id = "changePass">Change your password</button>
         <button type = "button" id = "changeEmail">Change your email</button>
-        <button type = "button" id = "changeColorScheme">Change your color scheme</button>
+        <button type = "button" id = "backBtn">Back</button>
+        <!--<button type = "button" id = "changeColorScheme">Change your color scheme</button>-->
     </div>
+
+    <nav class="global">
+        <div class="navbar">
+            <h1>navigation element</h1>
+        </div>
+    </nav>
 
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
     <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
