@@ -16,6 +16,7 @@ AUTH.onAuthStateChanged(function(user) {
     //if user is not signed in, return to login page
     if(!user){
         location.assign("../login/login.html");
+        return;
     }
 
     //retrieve user data from firebase and update on-screen profile

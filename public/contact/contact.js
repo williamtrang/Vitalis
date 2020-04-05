@@ -18,6 +18,7 @@ let backToTypeBtn = document.getElementById("backToType");      //back btn to go
 AUTH.onAuthStateChanged(function(user) {
     if(!user){
         location.assign("../login/login.html");
+        return;
     }
 });
 

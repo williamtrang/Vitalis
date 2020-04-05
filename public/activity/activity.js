@@ -14,6 +14,7 @@ const addActBtn = document.getElementById("addActBtn");
 AUTH.onAuthStateChanged(function(user) {
     if(!user){
         location.assign("../login/login.html");
+        return;
     }
 });
 
@@ -21,9 +22,12 @@ addActBtn.addEventListener("click", function(){
     addActivityPage.style.display = "none";
     mainPage.style.display = "inline-block";
 
-    document.getElementById("titleInput").value = "";
-    document.getElementById("actTypeInput").value = "";
-    document.getElementById("durationInput").value = "";
+    if(document.getElementById("titleInput").value != "" && document.getElementById("actTypeInput").value != "" && document.getElementById("durationInput").value != ""){
+        //database stuff
+        document.getElementById("titleInput").value = "";
+        document.getElementById("actTypeInput").value = "";
+        document.getElementById("durationInput").value = "";
+    }
 });
 
 backBtn.addEventListener("click", function(){

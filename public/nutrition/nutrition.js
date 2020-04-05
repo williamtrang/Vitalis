@@ -7,6 +7,7 @@ const AUTH = firebase.auth();
 AUTH.onAuthStateChanged(function(user) {
     if(!user){
         location.assign("../login/login.html");
+        return;
     }
 });
 
