@@ -22,10 +22,10 @@ html {
     width: 100%;
     background-color: white;
 }
-#navBarH {
+.navBarH {
     display: inline;
 }
-#navBarIcons{
+.navBarIcons{
     width: 12%;
     height: 12%;
     margin-top: 0.5vh;
