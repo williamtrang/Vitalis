@@ -35,3 +35,8 @@ html {
     margin-left: 0;
     padding: 1.5vw;
 }
+.calendar{
+    display: inline-block;
+    text-align: center;
+    /*put more tingz here?*/
+}

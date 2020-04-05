@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutrition</title>
+    <title>Vitals</title>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "../global.css">
     <link rel = "stylesheet" type = "text/css" href = "vital.css">
@@ -22,7 +22,17 @@
         </ul>
     </div>
 
-    <h1>VITAL PAGE</h1>
+    <div id="left">
+        <h1>VITALS</h1>
+    </div>
+    <div id="right">
+        <div class="verticalBtns">
+            <button type="button" id="vitalsCalendar">Calendar</button><!--how's this gna work?-->
+            <button type="button" id="changeView">Change View</button>
+        </div>
+    </div>
+    <h3 id="dayOfWeek">WEEKDAY</h3><!--weekday liek: monday, tuesday // MONDAY-->
+    <h3 id="date">DATE OF MONTH</h3><!--dATE in  Month Date Year form // February 29 2020-->
     <button type="button" id="addVital"><img src="../assets/add_icon.png" id="addIcon"></button>
     
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
