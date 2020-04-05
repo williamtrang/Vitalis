@@ -2,17 +2,18 @@ import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
 const DATABASE = firebase.database();
-let contactBtn = document.getElementById("contactBtn");
-let contactList = document.getElementById("contactList");
-let addContactDiv = document.getElementById("addContact");
-let contactType = document.getElementById("contactType");
-let addContactInfo = document.getElementById("addContactInfo");
-let nextBtn = document.getElementById("nextBtn");
-let finishBtn = document.getElementById("finishBtn");
-let backToListBtn = document.getElementById("backToList");
-let backToTypeBtn = document.getElementById("backToType");
+let contactBtn = document.getElementById("contactBtn");         //btn to add contact
+let contactList = document.getElementById("contactList");       //list of contacts
+let addContactDiv = document.getElementById("addContact");      //adding contact information div
+let contactType = document.getElementById("contactType");       //selecting the contact type list
+let addContactInfo = document.getElementById("addContactInfo"); //adding specific info are
+let nextBtn = document.getElementById("nextBtn");               //btn to move from contact type to contact info
+let finishBtn = document.getElementById("finishBtn");           //btn to finalize adding contact
+let backToListBtn = document.getElementById("backToList");      //back btn to go back to contact list
+let backToTypeBtn = document.getElementById("backToType");      //back btn to go back to contact type
 
 //TODO: ADD REAL FUNCTIONALITY TO THESE BUTTONS LOL AND MAKE THE CONTACT LIST ABLE TO ADD CONTACTS
+//begin the add contact process
 contactBtn.addEventListener("click", function(){
     contactList.style.display = "none";
     addContactDiv.style.display = "inline-block";
@@ -20,11 +21,13 @@ contactBtn.addEventListener("click", function(){
     addContactInfo.style.display = "none";
 });
 
+//btn to go to the next page (add contact info page)
 nextBtn.addEventListener("click", function(){
     addContactInfo.style.display = "inline-block";
     contactType.style.display = "none";
 });
 
+//finish adding contact and process and clear selections
 finishBtn.addEventListener("click", function(){
     contactList.style.display = "inline-block";
     addContactDiv.style.display = "none";
@@ -42,6 +45,7 @@ finishBtn.addEventListener("click", function(){
     document.getElementById("descInput").value = "";
 });
 
+//go back to contact list page and clear selections when clicked
 backToListBtn.addEventListener("click", function(){
     contactList.style.display = "inline-block";
     addContactDiv.style.display = "none";
@@ -59,6 +63,7 @@ backToListBtn.addEventListener("click", function(){
     document.getElementById("descInput").value = "";
 });
 
+//go back to contact type page when btn is clicked
 backToTypeBtn.addEventListener("click", function(){
     contactList.style.display = "none";
     addContactDiv.style.display = "inline-block";

@@ -11,14 +11,13 @@
     <script type = "module" src = "forgotpass.js" defer></script>
 </head>
 <body>
-    <!--the postReset div only shows up after pressing the submit btn, so remember to style!-->
     <div id = "preReset">
         <h2 id = "resetTitle">Enter email</h2>
         <p id = "resetDesc">Enter the email you used to sign in.</p>
         <input type = "text" id = "email" placeholder = "Email">
         <button type = "button" id = "submitBtn">RESET PASSWORD</button>
-        <p>Don't have an account?</p><!--add link to "sign up"?-->
-        <p>Return to Login</p>
+        <p id = "signUpBtn">Don't have an account?</p><!--add link to "sign up"?--> 
+        <p id = "homeBtnTwo">Return to Login</p>
     </div>
     <div id = "postReset">
         <h2 id = "postResetTitle">Thank you!</h2>
