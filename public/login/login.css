@@ -35,6 +35,9 @@ button {
     font-weight: bold;
     font-size: 5vw;
 }
+button:hover{
+    color:blue;
+}
 input{
     font-family: Cambria, 'Times New Roman', Times, serif;
     font-size: 4vw;
