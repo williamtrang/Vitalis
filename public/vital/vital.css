@@ -78,9 +78,11 @@ h1 {
     font-weight: none;
     margin-bottom: 3vh;
 }
-
-#addVitalsPage{
+#mainPage{
     display: none;
+}
+#addVitalsPage{
+    display: inline-block;
     width: 100%;
 }
 #addTitle{
@@ -112,5 +114,18 @@ h1 {
     padding-bottom: 3vw;
 }
 .moodIcons{
-    text-align: center;
+    display: inline-block;
+    width: 12%;
+    height: 12%;
+    margin-top: 4vw;
+    margin-right: 2.5vw;
+    margin-left: 2.5vw;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4vw grey;
+    /*FROM LEFT TO RIGHT:
+    box-shadow: 0px 0px 4vw green;
+    box-shadow: 0px 0px 4vw lightgreen;
+    box-shadow: 0px 0px 4vw grey;
+    box-shadow: 0px 0px 4vw lightpink;
+    box-shadow: 0px 0px 4vw red;*/
 }
