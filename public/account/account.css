@@ -6,3 +6,7 @@ body {
 #settingsPage {
     display: none;
 }
+
+#postResetEmail {
+    display: none;
+}

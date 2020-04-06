@@ -4,12 +4,13 @@ firebase.initializeApp(firebaseConfig);
 const AUTH = firebase.auth();
 const DATABASE = firebase.database();
 
-let logoutBtn = document.getElementById("logoutBtn");       //btn to logout
-let settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
-let backBtn = document.getElementById("backBtn");           //btn to go back to account page
-let mainPage = document.getElementById("mainPage");         //main page of account tab
-let settingsPage = document.getElementById("settingsPage"); //settings page of account tab
-let tempBtn = document.getElementById("tempBtn");
+const logoutBtn = document.getElementById("logoutBtn");       //btn to logout
+const settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
+const backBtn = document.getElementById("backBtn");           //btn to go back to account page
+const mainPage = document.getElementById("mainPage");         //main page of account tab
+const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
+const changePassBtn = document.getElementById("changePass");
+const postResetEmail = document.getElementById("postResetEmail");
 
 //update name and email fields with user's name and email
 AUTH.onAuthStateChanged(function(user) {
@@ -31,6 +32,15 @@ AUTH.onAuthStateChanged(function(user) {
 settingsBtn.addEventListener("click", function(){
     mainPage.style.display = "none";
     settingsPage.style.display = "inline-block";
+});
+
+changePassBtn.addEventListener("click", function(){
+    DATABASE.ref("/users/" + AUTH.currentUser.uid).once('value').then(d => {
+        AUTH.sendPasswordResetEmail(d.val().email);
+    });
+
+    postResetEmail.style.display = "inline-block";
+    settingsPage.style.display = "none";
 });
 
 //go back to main account screen when back btn is pressed
