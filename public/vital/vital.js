@@ -56,6 +56,21 @@ addVitalBtn.addEventListener("click", function(){
     addVitalsPage.style.display = "inline-block";
 });
 
+document.getElementById("vitalChoice").addEventListener("change", function(){
+    var vis = document.querySelector(".vis"),
+    target = document.getElementById(this.value);
+
+    if(vis !== null){
+        vis.classList.add("inv");
+        vis.classList.remove("vis");
+    }
+
+    if (target !== null){
+        target.classList.add("vis");
+        target.classList.remove("inv");
+    }
+});
+
 backBtn.addEventListener("click", function(){
     mainPage.style.display = "block";
     addVitalsPage.style.display = "none";

@@ -99,10 +99,10 @@ h1 {
 #mainPage{
     display: none;
 }
-.vitalPages {
+.inv{
     display: none;
 }
-#pulsePage {
+.vis{
     display: block;
 }
 #vitalChoice{
