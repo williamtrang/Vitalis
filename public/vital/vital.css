@@ -78,11 +78,8 @@ h1 {
     font-weight: none;
     margin-bottom: 3vh;
 }
-#mainPage{
-    display: none;
-}
 #addVitalsPage{
-    display: inline-block;
+    display: none;
     width: 100%;
 }
 #addTitle{
