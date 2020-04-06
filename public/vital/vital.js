@@ -8,6 +8,8 @@ const finishBtn = document.getElementById("finishBtn");
 const addVitalsPage = document.getElementById("addVitalsPage");
 const mainPage = document.getElementById("mainPage");
 
+let moodRads = document.getElementsByName("moodRad");
+
 let day = new Date();
 let date = document.getElementById("date");
 let weekday = document.getElementById("dayOfWeek");
@@ -69,6 +71,24 @@ document.getElementById("vitalChoice").addEventListener("change", function(){
         target.classList.add("vis");
         target.classList.remove("inv");
     }
+});
+
+document.getElementById("mood").addEventListener("change", function(){
+    let val = "";
+    for(let i = 0; i < moodRads.length; i++){
+        document.getElementById(moodRads[i].value).classList.add("dim");
+        document.getElementById(moodRads[i].value).classList.remove("lit");
+
+        document.getElementById(moodRads[i].value).src = "../assets/mood" + (i+1) + ".PNG";
+        if(moodRads[i].checked){
+            val = moodRads[i].value;
+        }
+    }
+
+    let selected = document.getElementById(val);
+    selected.src = "../assets/" + val + "_fill.png";
+    selected.classList.remove("dim");
+    selected.classList.add("lit");
 });
 
 backBtn.addEventListener("click", function(){

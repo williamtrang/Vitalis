@@ -11,6 +11,7 @@ const mainPage = document.getElementById("mainPage");         //main page of acc
 const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
 const changePassBtn = document.getElementById("changePass");
 const postResetEmail = document.getElementById("postResetEmail");
+const backAcctBtn = document.getElementById("backAccountBtn");
 
 //update name and email fields with user's name and email
 AUTH.onAuthStateChanged(function(user) {
@@ -41,6 +42,11 @@ changePassBtn.addEventListener("click", function(){
 
     postResetEmail.style.display = "inline-block";
     settingsPage.style.display = "none";
+});
+
+backAcctBtn.addEventListener("click", function(){
+    postResetEmail.style.display = "none";
+    mainPage.style.display = "inline-block";
 });
 
 //go back to main account screen when back btn is pressed
