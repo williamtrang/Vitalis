@@ -80,7 +80,7 @@ h1 {
 }
 
 #addVitalsPage{
-    display: inline-block;
+    display: none;
     width: 100%;
 }
 #addTitle{
@@ -95,9 +95,6 @@ h1 {
     margin-left: 15%;
     margin-right: 15%;
     border-radius: 25px;
-}
-#mainPage{
-    display: none;
 }
 .inv{
     display: none;
