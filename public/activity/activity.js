@@ -4,6 +4,7 @@ firebase.initializeApp(firebaseConfig);
 const AUTH = firebase.auth();
 const DATABASE = firebase.database();
 const mainPage = document.getElementById("mainPage");
+const inputActBtn  =document.getElementById("inputAct");
 const addActivityPage = document.getElementById("addActivityPage");
 const backBtn = document.getElementById("backBtn");
 const addActBtn = document.getElementById("addActBtn");
@@ -18,9 +19,14 @@ AUTH.onAuthStateChanged(function(user) {
     }
 });
 
-addActBtn.addEventListener("click", function(){
+inputActBtn.addEventListener("click", function(){
     addActivityPage.style.display = "inline-block";
     mainPage.style.display = "none";
+});
+
+addActBtn.addEventListener("click", function(){
+    addActivityPage.style.display = "none";
+    mainPage.style.display = "inline-block";
 
     if(document.getElementById("titleInput").value != "" && document.getElementById("actTypeInput").value != "" && document.getElementById("durationInput").value != ""){
         //database stuff
