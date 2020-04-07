@@ -62,9 +62,9 @@ body {
     margin-top: 3.5vh;
     margin-left: 6vw;
     margin-right: 6vw;
-    margin-bottom: 3.5vh;
+    margin-bottom: 1.5vh;
     padding-top: 1vh;
-    padding-bottom: 92%;
+    padding-bottom: 2vh;
 }
 
 .profileHeading{
@@ -76,7 +76,7 @@ body {
 
 .profileDesc{
     text-align: left;
-    font-size: 3vh;
+    font-size: 2.5vh;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
     margin-top: 0.25vh;
@@ -94,8 +94,21 @@ body {
 .profileInputs{
     float: left;
     display: block;
-    margin-top: 0.5vh;
+    margin-top: 1vh;
     margin-bottom: 2vh;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+
+#aboutMeDesc{
+    padding-bottom: 10vh;
+    padding-right: 40vw;
+}
+
+#aboutMeSet{
+    float: left;
+    display: block;
+    width: 100%;
 }
 
 .setButtons{
@@ -108,5 +121,22 @@ body {
     border-color: skyblue;
     background-color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin-bottom: 4vw;
+    margin-top: 2vw;
+    margin-bottom: 5vw;
+}
+
+#logoutBtn{
+    margin-bottom: 10vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 2vh;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-right: 10vw;
+    padding-left: 10vw;
+    border-radius: 25px;
+    border-style: solid;
+    border-color: white;
+    background-image: linear-gradient(to right, lightgreen, lightblue);
+    color: white;
+    font-weight: bold;
 }
