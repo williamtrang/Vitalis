@@ -24,7 +24,8 @@ AUTH.onAuthStateChanged(function(user) {
     //retrieve user data from firebase and update on-screen profile
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
-        document.getElementById("username").innerText = d.val().forename.toUpperCase() + " " + d.val().surname.toUpperCase();
+        document.getElementById("profileDescFirst").innerText = d.val().forename.toUpperCase();
+        document.getElementById("profileDescLast").innerText = d.val().surname.toUpperCase();
         document.getElementById("email").innerText = d.val().email;
     });
 });
