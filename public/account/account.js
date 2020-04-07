@@ -6,9 +6,10 @@ const DATABASE = firebase.database();
 
 const logoutBtn = document.getElementById("logoutBtn");       //btn to logout
 const settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
-const backBtn = document.getElementById("backBtn");           //btn to go back to account page
+const profileBtn = document.getElementById("profileBtn");
 const mainPage = document.getElementById("mainPage");         //main page of account tab
 const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
+const profilePage = document.getElementById("profilePage");
 const changePassBtn = document.getElementById("changePass");
 const postResetEmail = document.getElementById("postResetEmail");
 const backAcctBtn = document.getElementById("backAccountBtn");
@@ -25,13 +26,23 @@ AUTH.onAuthStateChanged(function(user) {
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
         document.getElementById("username").innerText = d.val().forename.toUpperCase() + " " + d.val().surname.toUpperCase();
+        document.getElementById("profileDescFirst").innerText = d.val().forename.toUpperCase();
+        document.getElementById("profileDescLast").innerText = d.val().surname.toUpperCase();
         document.getElementById("email").innerText = d.val().email;
     });
 });
 
+//go back to main account screen when back btn is pressed
+profileBtn.addEventListener("click", function(){
+    profilePage.style.display = "block";
+    settingsPage.style.display = "none";
+    postResetEmail.style.display = "none";
+});
+
 //opens the settings menu when the btn is pressed
 settingsBtn.addEventListener("click", function(){
-    mainPage.style.display = "none";
+    profilePage.style.display = "none";
+    postResetEmail.style.display = "none";
     settingsPage.style.display = "inline-block";
 });
 
@@ -46,13 +57,7 @@ changePassBtn.addEventListener("click", function(){
 
 backAcctBtn.addEventListener("click", function(){
     postResetEmail.style.display = "none";
-    mainPage.style.display = "inline-block";
-});
-
-//go back to main account screen when back btn is pressed
-backBtn.addEventListener("click", function(){
-    mainPage.style.display = "inline-block";
-    settingsPage.style.display = "none";
+    profilePage.style.display = "block";
 });
 
 //TODO: ADD FUNCTIONALITY TO SETTINGS BUTTONS AND CHANGING PROFILE PICTURE
