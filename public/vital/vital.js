@@ -77,7 +77,7 @@ document.getElementById("mood").addEventListener("change", function(){
     let val = "";
     for(let i = 0; i < moodRads.length; i++){
         document.getElementById(moodRads[i].value).classList.add("dim");
-        document.getElementById(moodRads[i].value).classList.remove("lit");
+        document.getElementById(moodRads[i].value).classList.remove(moodRads[i].value);
 
         document.getElementById(moodRads[i].value).src = "../assets/mood" + (i+1) + ".PNG";
         if(moodRads[i].checked){
@@ -88,7 +88,7 @@ document.getElementById("mood").addEventListener("change", function(){
     let selected = document.getElementById(val);
     selected.src = "../assets/" + val + "_fill.png";
     selected.classList.remove("dim");
-    selected.classList.add("lit");
+    selected.classList.add(val);
 });
 
 backBtn.addEventListener("click", function(){

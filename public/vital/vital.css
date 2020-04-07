@@ -128,9 +128,27 @@ h1 {
 .dim {
     box-shadow: 0px 0px 0px grey;
 }
-.lit{
+
+.mood1{
+    box-shadow: 0px 0px 4vw green;
+}
+
+.mood2{
+    box-shadow: 0px 0px 4vw lightgreen;
+}
+
+.mood3{
     box-shadow: 0px 0px 4vw grey;
 }
+
+.mood4{
+    box-shadow: 0px 0px 4vw lightpink;
+}
+
+.mood5{
+    box-shadow: 0px 0px 4vw red;
+}
+
 [type = radio] {
     position:absolute;
     opacity: 0;
