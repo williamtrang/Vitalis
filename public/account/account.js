@@ -25,15 +25,24 @@ AUTH.onAuthStateChanged(function(user) {
     //retrieve user data from firebase and update on-screen profile
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
+        document.getElementById("username").innerText = d.val().forename.toUpperCase() + " " + d.val().surname.toUpperCase();
         document.getElementById("profileDescFirst").innerText = d.val().forename.toUpperCase();
         document.getElementById("profileDescLast").innerText = d.val().surname.toUpperCase();
         document.getElementById("email").innerText = d.val().email;
     });
 });
 
+//go back to main account screen when back btn is pressed
+profileBtn.addEventListener("click", function(){
+    profilePage.style.display = "block";
+    settingsPage.style.display = "none";
+    postResetEmail.style.display = "none";
+});
+
 //opens the settings menu when the btn is pressed
 settingsBtn.addEventListener("click", function(){
     profilePage.style.display = "none";
+    postResetEmail.style.display = "none";
     settingsPage.style.display = "inline-block";
 });
 
@@ -49,12 +58,6 @@ changePassBtn.addEventListener("click", function(){
 backAcctBtn.addEventListener("click", function(){
     postResetEmail.style.display = "none";
     profilePage.style.display = "block";
-});
-
-//go back to main account screen when back btn is pressed
-profileBtn.addEventListener("click", function(){
-    profilePage.style.display = "block";
-    settingsPage.style.display = "none";
 });
 
 //TODO: ADD FUNCTIONALITY TO SETTINGS BUTTONS AND CHANGING PROFILE PICTURE
