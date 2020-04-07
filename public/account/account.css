@@ -50,11 +50,14 @@ body {
     color: white;
     font-size: 3vh;
 }
+#email{
+    margin: none;
+}
 #profilePage{
     margin-top: 3.5vh;
     margin-left: 6vw;
     margin-right: 6vw;
-    padding-top: 3vh;
-    border-style: solid;
-    border-color: grey;
+    margin-bottom: 3.5vh;
+    padding-top: 1vh;
+    padding-bottom: 92%;
 }
