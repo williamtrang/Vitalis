@@ -18,11 +18,8 @@ const backAcctBtn = document.getElementById("backAccountBtn");
 
 const birthdaySet = document.getElementById("birthdaySet");
 const aboutMeSet = document.getElementById("aboutMeSet");
-const aboutMeDesc = document.getElementById("aboutMeDesc");
 const numberSet = document.getElementById("phoneNumberSet");
-const phoneNumber = document.getElementById("phoneNumber");
 const workSet = document.getElementById("workPhoneNumberSet");
-const workPhone = document.getElementById("workPhoneNumber");
 
 //TODO: CHANGING PROFILE PICTURE
 //update name and email fields with user's name and email
@@ -48,6 +45,27 @@ AUTH.onAuthStateChanged(function(user) {
         if(d.val().birthday != undefined) {
             document.getElementById("birthdayText").innerText = d.val().birthday;
             document.getElementById("birthday").style.display = "none";
+        }
+    });
+
+    DATABASE.ref("/aboutme/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().aboutme != undefined) {
+            document.getElementById("aboutMeText").innerText = d.val().aboutme;
+            document.getElementById("aboutMeDesc").style.display = "none";
+        }
+    });
+
+    DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().phonenumber != undefined) {
+            document.getElementById("numberText").innerText = d.val().phonenumber;
+            document.getElementById("phoneNumber").style.display = "none";
+        }
+    });
+
+    DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().worknumber != undefined) {
+            document.getElementById("workText").innerText = d.val().worknumber;
+            document.getElementById("workPhoneNumber").style.display = "none";
         }
     });
 });
@@ -97,6 +115,66 @@ birthdaySet.addEventListener("click", function(){
 
     else {
         alert("Birthday not filled out!");
+    }
+});
+
+aboutMeSet.addEventListener("click", function(){
+    let aboutMeVal = document.getElementById("aboutMeDesc").value;
+    if(aboutMeVal != "") {
+        DATABASE.ref("aboutme/" + AUTH.currentUser.uid).set({
+            aboutme: aboutMeVal,
+        });
+
+        DATABASE.ref("/aboutme/" + AUTH.currentUser.uid).once('value').then(d => {
+            if(d.val().aboutme != undefined) {
+                document.getElementById("aboutMeText").innerText = d.val().aboutme;
+                document.getElementById("aboutMeDesc").style.display = "none";
+            }
+        });
+    }
+
+    else {
+        alert("About Me not filled out!");
+    }
+});
+
+numberSet.addEventListener("click", function(){
+    let numberVal = document.getElementById("phoneNumber").value;
+    if(numberVal != "") {
+        DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).set({
+            phonenumber: numberVal,
+        });
+
+        DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
+            if(d.val().phonenumber != undefined) {
+                document.getElementById("numberText").innerText = d.val().phonenumber;
+                document.getElementById("phoneNumber").style.display = "none";
+            }
+        });
+    }
+
+    else {
+        alert("Phone number not filled out!");
+    }
+});
+
+workSet.addEventListener("click", function(){
+    let numberVal = document.getElementById("workPhoneNumber").value;
+    if(numberVal != "") {
+        DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).set({
+            worknumber: numberVal,
+        });
+
+        DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
+            if(d.val().worknumber != undefined) {
+                document.getElementById("workText").innerText = d.val().worknumber;
+                document.getElementById("workPhoneNumber").style.display = "none";
+            }
+        });
+    }
+
+    else {
+        alert("Phone number not filled out!");
     }
 });
 
