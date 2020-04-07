@@ -7,13 +7,24 @@ const DATABASE = firebase.database();
 const logoutBtn = document.getElementById("logoutBtn");       //btn to logout
 const settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
 const profileBtn = document.getElementById("profileBtn");
+
 const mainPage = document.getElementById("mainPage");         //main page of account tab
 const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
 const profilePage = document.getElementById("profilePage");
+
 const changePassBtn = document.getElementById("changePass");
 const postResetEmail = document.getElementById("postResetEmail");
 const backAcctBtn = document.getElementById("backAccountBtn");
 
+const birthdaySet = document.getElementById("birthdaySet");
+const aboutMeSet = document.getElementById("aboutMeSet");
+const aboutMeDesc = document.getElementById("aboutMeDesc");
+const numberSet = document.getElementById("phoneNumberSet");
+const phoneNumber = document.getElementById("phoneNumber");
+const workSet = document.getElementById("workPhoneNumberSet");
+const workPhone = document.getElementById("workPhoneNumber");
+
+//TODO: CHANGING PROFILE PICTURE
 //update name and email fields with user's name and email
 AUTH.onAuthStateChanged(function(user) {
     //if user is not signed in, return to login page
@@ -25,10 +36,19 @@ AUTH.onAuthStateChanged(function(user) {
     //retrieve user data from firebase and update on-screen profile
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
-        document.getElementById("username").innerText = d.val().forename.toUpperCase() + " " + d.val().surname.toUpperCase();
-        document.getElementById("profileDescFirst").innerText = d.val().forename.toUpperCase();
-        document.getElementById("profileDescLast").innerText = d.val().surname.toUpperCase();
+        document.getElementById("username").innerText = d.val().forename.substring(0,1).toUpperCase() + d.val().forename.substring(1, d.val().forename.length).toLowerCase() + " " + 
+        d.val().surname.substring(0,1).toUpperCase() + d.val().surname.substring(1, d.val().surname.length).toLowerCase();
+       
+        document.getElementById("profileDescFirst").innerText = d.val().forename.substring(0,1).toUpperCase() + d.val().forename.substring(1, d.val().forename.length).toLowerCase();
+        document.getElementById("profileDescLast").innerText = d.val().surname.substring(0,1).toUpperCase() + d.val().surname.substring(1, d.val().surname.length).toLowerCase();
         document.getElementById("email").innerText = d.val().email;
+    });
+
+    DATABASE.ref("/birthdays/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().birthday != undefined) {
+            document.getElementById("birthdayText").innerText = d.val().birthday;
+            document.getElementById("birthday").style.display = "none";
+        }
     });
 });
 
@@ -60,7 +80,25 @@ backAcctBtn.addEventListener("click", function(){
     profilePage.style.display = "block";
 });
 
-//TODO: ADD FUNCTIONALITY TO SETTINGS BUTTONS AND CHANGING PROFILE PICTURE
+birthdaySet.addEventListener("click", function(){
+    let birthdayVal = document.getElementById("birthday").value;
+    if(birthdayVal != "") {
+        DATABASE.ref("birthdays/" + AUTH.currentUser.uid).set({
+            birthday: birthdayVal,
+        });
+
+        DATABASE.ref("/birthdays/" + AUTH.currentUser.uid).once('value').then(d => {
+            if(d.val().birthday != undefined) {
+                document.getElementById("birthdayText").innerText = d.val().birthday;
+                document.getElementById("birthday").style.display = "none";
+            }
+        });
+    }
+
+    else {
+        alert("Birthday not filled out!");
+    }
+});
 
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------
 document.getElementById("activityIcon").addEventListener("click", function(){
