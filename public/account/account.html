@@ -23,7 +23,10 @@
     </div>
 
     <div id = "mainPage">
-        <img src = "../assets/profiletemp.png" id = "profilePic"> <!-- TODO: update with picture of anonymous person and option to add a profile picture-->
+        <label>
+            <img src = "../assets/profiletemp.png" id = "profilePic"> <!-- TODO: update with picture of anonymous person and option to add a profile picture-->
+            <input type = "image" id = "profilePicInput">
+        </label>
         <p id = "username">NAME HERE</p> 
         <!--<input type = "text" id = "nicknameInput" placeholder = "nickname">--> <!--GET TO THIS WHEN I FEEL LIKE IT-->
     </div>
@@ -43,7 +46,7 @@
         <p id="profileDescLast" class="profileDesc"></p>
 
         <p class="profileHeading">birthday</p>
-        <input type = "text" id = "birthday" class ="profileInputs" placeholder = "00/00/0000">
+        <input type = "date" id = "birthday" class ="profileInputs" placeholder = "00/00/0000">
         <button type="button" id="birthdaySet" class="setButtons">Set</button>
         <p id = "birthdayText"></p>
 
