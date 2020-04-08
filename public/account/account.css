@@ -91,13 +91,16 @@ body {
     font-size: 2vh;
     float: left;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-top: 0.25vh;
     margin-top: 0.25vh;
     margin-bottom: 2vh;
+    color: grey;
 }
 
 #changeScheme{
-    padding-left: 6vw;
-    padding-right: 6vw;
+    padding-left: 4vw;
+    padding-right: 4vw;
+    margin-left: 2.5vw;
 }
 
 .profileDesc{
