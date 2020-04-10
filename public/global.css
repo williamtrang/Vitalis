@@ -40,3 +40,7 @@ html {
     text-align: center;
     /*put more tingz here?*/
 }
+.dark-mode{
+    background-color: black;
+    color:white;
+}
