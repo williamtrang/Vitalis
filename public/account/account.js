@@ -8,7 +8,6 @@ const logoutBtn = document.getElementById("logoutBtn");       //btn to logout
 const settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
 const profileBtn = document.getElementById("profileBtn");
 
-const mainPage = document.getElementById("mainPage");         //main page of account tab
 const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
 const profilePage = document.getElementById("profilePage");
 
@@ -20,6 +19,7 @@ const birthdaySet = document.getElementById("birthdaySet");
 const aboutMeSet = document.getElementById("aboutMeSet");
 const numberSet = document.getElementById("phoneNumberSet");
 const workSet = document.getElementById("workPhoneNumberSet");
+const profilePicSet = document.getElementById("profilePicInput");
 
 const themeText = document.getElementById("themeText");
 const darkModeBtn = document.getElementById("darkMode");
@@ -98,6 +98,27 @@ settingsBtn.addEventListener("click", function(){
     profilePage.style.display = "none";
     postResetEmail.style.display = "none";
     settingsPage.style.display = "inline-block";
+});
+
+profilePicSet.addEventListener("change", function(d){
+    let file = d.target.files[0];
+
+    let storageRef = firebase.storage().ref("profile_pics/" + AUTH.currentUser.uid + "/" + file.name);
+
+    let task = storageRef.put(file);
+    task.on("state_changed", 
+        function progress(snapshot){
+
+        },
+
+        function error(e){
+
+        },
+
+        function complete(){
+            
+        }
+    )
 });
 
 changePassBtn.addEventListener("click", function(){

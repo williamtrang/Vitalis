@@ -210,3 +210,10 @@ body {
     position: absolute;
     z-index: -1;
 }
+
+[type = file]{
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
