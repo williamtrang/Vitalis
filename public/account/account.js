@@ -21,6 +21,8 @@ const aboutMeSet = document.getElementById("aboutMeSet");
 const numberSet = document.getElementById("phoneNumberSet");
 const workSet = document.getElementById("workPhoneNumberSet");
 
+const body = document.body;
+
 //TODO: CHANGING PROFILE PICTURE
 //update name and email fields with user's name and email
 AUTH.onAuthStateChanged(function(user) {
@@ -184,6 +186,18 @@ workSet.addEventListener("click", function(){
     else {
         alert("Phone number not filled out!");
     }
+});
+
+document.getElementById("darkMode").addEventListener("click", function(){
+    body.classList.toggle("dark-mode");
+    let darkMode = false;
+    if(body.classList.contains("dark-mode")){
+        darkMode = true;
+    }
+    
+    DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).set({
+        
+    });
 });
 
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------
