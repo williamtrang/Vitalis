@@ -206,3 +206,10 @@ body {
     color: white;
     font-weight: bold;
 }
+
+[type = file]{
+    opacity: 0;
+    position: absolute;
+    height: 0;
+    width: 0;
+}
