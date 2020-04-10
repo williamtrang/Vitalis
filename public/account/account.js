@@ -21,6 +21,8 @@ const aboutMeSet = document.getElementById("aboutMeSet");
 const numberSet = document.getElementById("phoneNumberSet");
 const workSet = document.getElementById("workPhoneNumberSet");
 
+const themeText = document.getElementById("themeText");
+const darkModeBtn = document.getElementById("darkMode");
 const body = document.body;
 
 //TODO: CHANGING PROFILE PICTURE
@@ -78,6 +80,8 @@ AUTH.onAuthStateChanged(function(user) {
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().darkmode == true) {
             body.classList.toggle("dark-mode");
+            themeText.innerText = "Switch to Light Mode";
+            darkModeBtn.innerText = "Light Mode";
         }
     });
 });
@@ -194,11 +198,18 @@ workSet.addEventListener("click", function(){
     }
 });
 
-document.getElementById("darkMode").addEventListener("click", function(){
+darkModeBtn.addEventListener("click", function(){
     body.classList.toggle("dark-mode");
     let darkMode = false;
+
     if(body.classList.contains("dark-mode")){
         darkMode = true;
+        themeText.innerText = "Switch to Light Mode";
+        darkModeBtn.innerText = "Light Mode";
+    }
+    else {
+        themeText.innerText = "Switch to Dark Mode";
+        darkModeBtn.innerText = "Dark Mode";
     }
 
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).set({
