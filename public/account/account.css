@@ -3,7 +3,6 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    background-image: url("../assets/backgrounds/background_green.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -205,4 +204,9 @@ body {
     background-image: linear-gradient(to right, lightgreen, lightblue);
     color: white;
     font-weight: bold;
+}
+
+#backgroundHeader{
+    position: absolute;
+    z-index: -1;
 }
