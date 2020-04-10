@@ -45,6 +45,7 @@ AUTH.onAuthStateChanged(function(user) {
         if(d.val().birthday != undefined) {
             document.getElementById("birthdayText").innerText = d.val().birthday;
             document.getElementById("birthday").style.display = "none";
+            birthdaySet.style.display = "none";
         }
     });
 
@@ -52,6 +53,7 @@ AUTH.onAuthStateChanged(function(user) {
         if(d.val().aboutme != undefined) {
             document.getElementById("aboutMeText").innerText = d.val().aboutme;
             document.getElementById("aboutMeDesc").style.display = "none";
+            aboutMeSet.style.display = "none";
         }
     });
 
@@ -59,6 +61,7 @@ AUTH.onAuthStateChanged(function(user) {
         if(d.val().phonenumber != undefined) {
             document.getElementById("numberText").innerText = d.val().phonenumber;
             document.getElementById("phoneNumber").style.display = "none";
+            numberSet.style.display = "none";
         }
     });
 
@@ -66,6 +69,7 @@ AUTH.onAuthStateChanged(function(user) {
         if(d.val().worknumber != undefined) {
             document.getElementById("workText").innerText = d.val().worknumber;
             document.getElementById("workPhoneNumber").style.display = "none";
+            workSet.style.display = "none";
         }
     });
 });
@@ -109,6 +113,7 @@ birthdaySet.addEventListener("click", function(){
             if(d.val().birthday != undefined) {
                 document.getElementById("birthdayText").innerText = d.val().birthday;
                 document.getElementById("birthday").style.display = "none";
+                birthdaySet.style.display = "none";
             }
         });
     }
@@ -129,6 +134,7 @@ aboutMeSet.addEventListener("click", function(){
             if(d.val().aboutme != undefined) {
                 document.getElementById("aboutMeText").innerText = d.val().aboutme;
                 document.getElementById("aboutMeDesc").style.display = "none";
+                aboutMeSet.style.display = "none";
             }
         });
     }
@@ -149,6 +155,7 @@ numberSet.addEventListener("click", function(){
             if(d.val().phonenumber != undefined) {
                 document.getElementById("numberText").innerText = d.val().phonenumber;
                 document.getElementById("phoneNumber").style.display = "none";
+                numberSet.style.display = "none";
             }
         });
     }
@@ -169,6 +176,7 @@ workSet.addEventListener("click", function(){
             if(d.val().worknumber != undefined) {
                 document.getElementById("workText").innerText = d.val().worknumber;
                 document.getElementById("workPhoneNumber").style.display = "none";
+                workSet.style.display = "none";
             }
         });
     }
