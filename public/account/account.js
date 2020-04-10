@@ -34,6 +34,8 @@ AUTH.onAuthStateChanged(function(user) {
         return;
     }
 
+    const storageRef = firebase.storage();
+
     //retrieve user data from firebase and update on-screen profile
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
@@ -78,10 +80,27 @@ AUTH.onAuthStateChanged(function(user) {
     });
 
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
-        if(d.val().darkmode == true) {
-            body.classList.toggle("dark-mode");
-            themeText.innerText = "Switch to Light Mode";
-            darkModeBtn.innerText = "Light Mode";
+        if(d.val().darkmode != undefined){
+            if(d.val().darkmode == true) {
+                body.classList.toggle("dark-mode");
+                themeText.innerText = "Switch to Light Mode";
+                darkModeBtn.innerText = "Light Mode";
+            }
+        }
+    });
+
+    storageRef.ref().child("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").getDownloadURL().then(function(url){
+        document.getElementById("profilePic").src = url;
+    }).catch(function(e){
+        switch(e.code){
+            case 'storage/object-not-found':
+                // File doesn't exist
+                storageRef.ref("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").put("../assets/profiletemp.png");
+                break;
+            
+            case 'storage/unknown':
+                // Unknown error occurred, inspect the server response
+                break;
         }
     });
 });
@@ -103,20 +122,31 @@ settingsBtn.addEventListener("click", function(){
 profilePicSet.addEventListener("change", function(d){
     let file = d.target.files[0];
 
-    let storageRef = firebase.storage().ref("profile_pics/" + AUTH.currentUser.uid + "/" + file.name);
+    let storageRef = firebase.storage();
+    let upload = storageRef.ref("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg");
 
-    let task = storageRef.put(file);
+    let task = upload.put(file);
     task.on("state_changed", 
         function progress(snapshot){
-
         },
 
         function error(e){
-
         },
 
-        function complete(){
-            
+        function complete(){ 
+            storageRef.ref().child("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").getDownloadURL().then(function(url){
+                document.getElementById("profilePic").src = url;
+            }).catch(function(e){
+                switch(e.code){
+                    case 'storage/object-not-found':
+                        // File doesn't exist
+                        break;
+                    
+                    case 'storage/unknown':
+                        // Unknown error occurred, inspect the server response
+                        break;
+                }
+            }); 
         }
     )
 });
