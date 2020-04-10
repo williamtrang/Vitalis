@@ -74,6 +74,12 @@ AUTH.onAuthStateChanged(function(user) {
             workSet.style.display = "none";
         }
     });
+
+    DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().darkmode == true) {
+            body.classList.toggle("dark-mode");
+        }
+    });
 });
 
 //go back to main account screen when back btn is pressed
@@ -194,9 +200,9 @@ document.getElementById("darkMode").addEventListener("click", function(){
     if(body.classList.contains("dark-mode")){
         darkMode = true;
     }
-    
+
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).set({
-        
+        darkmode: darkMode,
     });
 });
 

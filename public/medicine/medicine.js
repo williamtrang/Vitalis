@@ -2,6 +2,9 @@ import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
 const AUTH = firebase.auth();
+const DATABASE = firebase.database();
+
+const body = document.body
 
 //if user is not signed in, return to login page
 AUTH.onAuthStateChanged(function(user) {
@@ -9,6 +12,12 @@ AUTH.onAuthStateChanged(function(user) {
         location.assign("../login/login.html");
         return;
     }
+
+    DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().darkmode == true) {
+            body.classList.toggle("dark-mode");
+        }
+    });
 });
 
 //------------------------------------------------NAVBAR FUNCTIONALITY------------------------------------------------

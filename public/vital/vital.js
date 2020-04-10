@@ -2,6 +2,8 @@ import {firebaseConfig} from "../init.js"
 firebase.initializeApp(firebaseConfig);
 
 const AUTH = firebase.auth();
+const DATABASE = firebase.database();
+
 const addVitalBtn = document.getElementById("addVital");
 const backBtn = document.getElementById("backBtn");
 const finishBtn = document.getElementById("finishBtn");
@@ -13,6 +15,8 @@ let moodRads = document.getElementsByName("moodRad");
 let day = new Date();
 let date = document.getElementById("date");
 let weekday = document.getElementById("dayOfWeek");
+
+const body = document.body;
 
 let month_dict = {
     1: "January",
@@ -51,6 +55,12 @@ AUTH.onAuthStateChanged(function(user) {
 
     weekday.innerText = weekday_dict[day.getDay()];
     date.innerText = month_dict[(day.getMonth()+1)] + " " + day.getDate() + ", " + day.getFullYear();
+
+    DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().darkmode == true) {
+            body.classList.toggle("dark-mode");
+        }
+    });
 });
 
 addVitalBtn.addEventListener("click", function(){

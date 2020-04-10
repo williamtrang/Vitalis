@@ -4,15 +4,17 @@ firebase.initializeApp(firebaseConfig);
 const AUTH = firebase.auth();
 const DATABASE = firebase.database();
 
-let contactBtn = document.getElementById("contactBtn");         //btn to add contact
-let contactList = document.getElementById("contactList");       //list of contacts
-let addContactDiv = document.getElementById("addContact");      //adding contact information div
-let contactType = document.getElementById("contactType");       //selecting the contact type list
-let addContactInfo = document.getElementById("addContactInfo"); //adding specific info are
-let nextBtn = document.getElementById("nextBtn");               //btn to move from contact type to contact info
-let finishBtn = document.getElementById("finishBtn");           //btn to finalize adding contact
-let backToListBtn = document.getElementById("backToList");      //back btn to go back to contact list
-let backToTypeBtn = document.getElementById("backToType");      //back btn to go back to contact type
+const contactBtn = document.getElementById("contactBtn");         //btn to add contact
+const contactList = document.getElementById("contactList");       //list of contacts
+const addContactDiv = document.getElementById("addContact");      //adding contact information div
+const contactType = document.getElementById("contactType");       //selecting the contact type list
+const addContactInfo = document.getElementById("addContactInfo"); //adding specific info are
+const nextBtn = document.getElementById("nextBtn");               //btn to move from contact type to contact info
+const finishBtn = document.getElementById("finishBtn");           //btn to finalize adding contact
+const backToListBtn = document.getElementById("backToList");      //back btn to go back to contact list
+const backToTypeBtn = document.getElementById("backToType");      //back btn to go back to contact type
+
+const body = document.body;
 
 //if user is not signed in, return to login page
 AUTH.onAuthStateChanged(function(user) {
@@ -20,6 +22,12 @@ AUTH.onAuthStateChanged(function(user) {
         location.assign("../login/login.html");
         return;
     }
+
+    DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
+        if(d.val().darkmode == true) {
+            body.classList.toggle("dark-mode");
+        }
+    });
 });
 
 //TODO: ADD REAL FUNCTIONALITY TO THESE BUTTONS LOL AND MAKE THE CONTACT LIST ABLE TO ADD CONTACTS
