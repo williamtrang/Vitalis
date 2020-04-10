@@ -10,7 +10,6 @@ body {
 }
 
 #profilePage{
-    display: none;
     margin-top: 3.5vh;
     margin-left: 6vw;
     margin-right: 6vw;
@@ -30,7 +29,7 @@ body {
 }
 
 #postResetEmail {
-    display: block;
+    display: none;
     margin-top: 3.5vh;
     margin-left: 6vw;
     margin-right: 6vw;
