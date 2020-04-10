@@ -4,29 +4,33 @@ firebase.initializeApp(firebaseConfig);
 const AUTH = firebase.auth();
 const DATABASE = firebase.database();
 
-const logoutBtn = document.getElementById("logoutBtn");       //btn to logout
-const settingsBtn = document.getElementById("settingsBtn");   //btn to access settings
-const profileBtn = document.getElementById("profileBtn");
+//navigation buttons
+const logoutBtn = document.getElementById("logoutBtn");             //btn to logout
+const settingsBtn = document.getElementById("settingsBtn");         //btn to access settings
+const profileBtn = document.getElementById("profileBtn");           //btn to accesss profile page
 
-const settingsPage = document.getElementById("settingsPage"); //settings page of account tab
-const profilePage = document.getElementById("profilePage");
+//main screens
+const settingsPage = document.getElementById("settingsPage");       //settings page of account tab
+const profilePage = document.getElementById("profilePage");         //profile page of account tab
 
-const changePassBtn = document.getElementById("changePass");
-const postResetEmail = document.getElementById("postResetEmail");
-const backAcctBtn = document.getElementById("backAccountBtn");
+//change password elements
+const changePassBtn = document.getElementById("changePass");        //btn to reset password
+const postResetEmail = document.getElementById("postResetEmail");   //landing page after resetting email
+const backAcctBtn = document.getElementById("backAccountBtn");      //btn on landing page to go back to main pages
 
-const birthdaySet = document.getElementById("birthdaySet");
-const aboutMeSet = document.getElementById("aboutMeSet");
-const numberSet = document.getElementById("phoneNumberSet");
-const workSet = document.getElementById("workPhoneNumberSet");
-const profilePicSet = document.getElementById("profilePicInput");
+//user info elements
+const birthdaySet = document.getElementById("birthdaySet");         //btn to set user birthday
+const aboutMeSet = document.getElementById("aboutMeSet");           //btn to set user description
+const numberSet = document.getElementById("phoneNumberSet");        //btn to set user phone number
+const workSet = document.getElementById("workPhoneNumberSet");      //btn to set user work phone number
+const profilePicSet = document.getElementById("profilePicInput");   //click to change profile picture
 
-const themeText = document.getElementById("themeText");
-const darkModeBtn = document.getElementById("darkMode");
+//toggle themes elements
+const themeText = document.getElementById("themeText");             //text relating to current theme (light or dark)
+const darkModeBtn = document.getElementById("darkMode");            //btn to toggle dark mode
 const body = document.body;
 
-//TODO: CHANGING PROFILE PICTURE
-//update name and email fields with user's name and email
+//update information with user's specific information
 AUTH.onAuthStateChanged(function(user) {
     //if user is not signed in, return to login page
     if(!user){
@@ -36,7 +40,7 @@ AUTH.onAuthStateChanged(function(user) {
 
     const storageRef = firebase.storage();
 
-    //retrieve user data from firebase and update on-screen profile
+    //retrieve user data from firebase and update on-screen profile, first update is name and email
     const uId = AUTH.currentUser.uid;
     DATABASE.ref("/users/" + uId).once('value').then(d => {
         document.getElementById("username").innerText = d.val().forename.substring(0,1).toUpperCase() + d.val().forename.substring(1, d.val().forename.length).toLowerCase() + " " + 
@@ -47,6 +51,7 @@ AUTH.onAuthStateChanged(function(user) {
         document.getElementById("email").innerText = d.val().email;
     });
 
+    //update user birthday (if exists in DB)
     DATABASE.ref("/birthdays/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().birthday != undefined) {
             document.getElementById("birthdayText").innerText = d.val().birthday;
@@ -55,6 +60,7 @@ AUTH.onAuthStateChanged(function(user) {
         }
     });
 
+    //update user description (if exists in DB)
     DATABASE.ref("/aboutme/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().aboutme != undefined) {
             document.getElementById("aboutMeText").innerText = d.val().aboutme;
@@ -63,6 +69,7 @@ AUTH.onAuthStateChanged(function(user) {
         }
     });
 
+    //update user phone number (if exists in DB)
     DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().phonenumber != undefined) {
             document.getElementById("numberText").innerText = d.val().phonenumber;
@@ -71,6 +78,7 @@ AUTH.onAuthStateChanged(function(user) {
         }
     });
 
+    //update user work number (if exists in DB)
     DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().worknumber != undefined) {
             document.getElementById("workText").innerText = d.val().worknumber;
@@ -79,6 +87,7 @@ AUTH.onAuthStateChanged(function(user) {
         }
     });
 
+    //update theme based on user past preferences (light is default)
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).once('value').then(d => {
         if(d.val().darkmode != undefined){
             if(d.val().darkmode == true) {
@@ -89,12 +98,13 @@ AUTH.onAuthStateChanged(function(user) {
         }
     });
 
+    //update user profile picture with what is stored in firebase storage
     storageRef.ref().child("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").getDownloadURL().then(function(url){
         document.getElementById("profilePic").src = url;
     }).catch(function(e){
         switch(e.code){
             case 'storage/object-not-found':
-                // File doesn't exist
+                // File doesn't exist, use default (anonymous) picture
                 storageRef.ref("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").put("../assets/profiletemp.png");
                 break;
             
@@ -119,13 +129,18 @@ settingsBtn.addEventListener("click", function(){
     settingsPage.style.display = "inline-block";
 });
 
+//listen for file to be added and update the users profile picture
 profilePicSet.addEventListener("change", function(d){
+    //get file
     let file = d.target.files[0];
 
+    //create storage reference and upload file into firebase storage
     let storageRef = firebase.storage();
     let upload = storageRef.ref("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg");
 
     let task = upload.put(file);
+
+    //run the file upload
     task.on("state_changed", 
         function progress(snapshot){
         },
@@ -133,6 +148,7 @@ profilePicSet.addEventListener("change", function(d){
         function error(e){
         },
 
+        //when file is done uploading, update the current profile picture with the newly added one
         function complete(){ 
             storageRef.ref().child("profile_pics/" + AUTH.currentUser.uid + "/profilepic.jpg").getDownloadURL().then(function(url){
                 document.getElementById("profilePic").src = url;
@@ -151,6 +167,7 @@ profilePicSet.addEventListener("change", function(d){
     )
 });
 
+//listen for btn to be pressed, which sends password reset email to user
 changePassBtn.addEventListener("click", function(){
     DATABASE.ref("/users/" + AUTH.currentUser.uid).once('value').then(d => {
         AUTH.sendPasswordResetEmail(d.val().email);
@@ -160,18 +177,24 @@ changePassBtn.addEventListener("click", function(){
     settingsPage.style.display = "none";
 });
 
+//go back to the profile page
 backAcctBtn.addEventListener("click", function(){
     postResetEmail.style.display = "none";
     profilePage.style.display = "block";
 });
 
+//listen for click and update user birthday in firebase DB 
 birthdaySet.addEventListener("click", function(){
     let birthdayVal = document.getElementById("birthday").value;
+
+    //if value is not blank, update user birthday
     if(birthdayVal != "") {
+        //store birthday in DB
         DATABASE.ref("birthdays/" + AUTH.currentUser.uid).set({
             birthday: birthdayVal,
         });
 
+        //update birthday on profile page
         DATABASE.ref("/birthdays/" + AUTH.currentUser.uid).once('value').then(d => {
             if(d.val().birthday != undefined) {
                 document.getElementById("birthdayText").innerText = d.val().birthday;
@@ -186,13 +209,18 @@ birthdaySet.addEventListener("click", function(){
     }
 });
 
+//listen for click and update user description in firebase DB
 aboutMeSet.addEventListener("click", function(){
     let aboutMeVal = document.getElementById("aboutMeDesc").value;
+
+    //if value is not blank, update user description
     if(aboutMeVal != "") {
+        //store description in DB
         DATABASE.ref("aboutme/" + AUTH.currentUser.uid).set({
             aboutme: aboutMeVal,
         });
 
+        //update description on profile page
         DATABASE.ref("/aboutme/" + AUTH.currentUser.uid).once('value').then(d => {
             if(d.val().aboutme != undefined) {
                 document.getElementById("aboutMeText").innerText = d.val().aboutme;
@@ -207,13 +235,18 @@ aboutMeSet.addEventListener("click", function(){
     }
 });
 
+//listen for click and update user phone number in firebase DB
 numberSet.addEventListener("click", function(){
     let numberVal = document.getElementById("phoneNumber").value;
+
+    //if value is not blank, update user number
     if(numberVal != "") {
+        //store number in DB
         DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).set({
             phonenumber: numberVal,
         });
 
+        //update phone number on profile page
         DATABASE.ref("/phone_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
             if(d.val().phonenumber != undefined) {
                 document.getElementById("numberText").innerText = d.val().phonenumber;
@@ -228,13 +261,18 @@ numberSet.addEventListener("click", function(){
     }
 });
 
+//listen for click and update user work number in firebase DB
 workSet.addEventListener("click", function(){
     let numberVal = document.getElementById("workPhoneNumber").value;
+
+    //if value is not blank, update work number in DB
     if(numberVal != "") {
+        //store work number in DB
         DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).set({
             worknumber: numberVal,
         });
 
+        //update work number on profile page
         DATABASE.ref("/work_numbers/" + AUTH.currentUser.uid).once('value').then(d => {
             if(d.val().worknumber != undefined) {
                 document.getElementById("workText").innerText = d.val().worknumber;
@@ -249,10 +287,13 @@ workSet.addEventListener("click", function(){
     }
 });
 
+//listen for click and change theme on click
 darkModeBtn.addEventListener("click", function(){
+    //change theme by toggling dark-mode class
     body.classList.toggle("dark-mode");
     let darkMode = false;
 
+    //change button and description text based on whehter or not dark mode is on
     if(body.classList.contains("dark-mode")){
         darkMode = true;
         themeText.innerText = "Switch to Light Mode";
@@ -263,6 +304,7 @@ darkModeBtn.addEventListener("click", function(){
         darkModeBtn.innerText = "Dark Mode";
     }
 
+    //update last theme selection in DB to remember user selections
     DATABASE.ref("/dark_mode/" + AUTH.currentUser.uid).set({
         darkmode: darkMode,
     });
