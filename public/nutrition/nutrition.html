@@ -22,8 +22,54 @@
         </ul>
     </div>
 
+    <div class="fixedHeader">
+        <img src="../assets/leaf_logo.png" id="headingLogo">
+        <h2 id="heading">VITALIS</h2>
+    </div>
+
     <h1>NUTRITION PAGE</h1>
+
+    <div id="foodIntake">
+        <h2 id="foodHeading">Food Intake</h2>
+        <button type="button" id="addFood">Add Food</button>
+    </div>
     
+    <div id = "addFoodPage">
+        <div id = "dropdown">
+            <select id = "foodChoice">
+                <option value = "breakfast">Breakfast</option>
+                <option value = "lunch">Lunch</option>
+                <option value = "dinner">Dinner</option>
+                <option value = "other">Other</option>
+            </select>
+            <input type="text" id="otherMeal" placeholder="Meal Description"><!--hide until other is picked-->
+        </div>
+        <input type="text" id="mealDescription" placeholder="Notes from meal"><!--idk change this if you want-->
+        <p>Protein Icon</p><!--find some way to insert values other than input-->
+        <p>Dairy Icon</p>
+        <p>Grain Icon</p>
+        <p>Vegetable Icon</p>
+        <p>Fruit Icon</p>
+        <button type="button" id="addFood2">Add Meal</button>
+    </div>
+
+    <div id="waterIntake">
+        <h2 id="waterHeading">Water Intake</h2>
+        <h3>Current Oz</h3>
+        <button type="button" id="addWater">Add Cup</button>
+        <button type="button" id="addWater">Add Bottle</button>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+        <p>icon</p>
+    </div>
+
     <script defer src="/__/firebase/7.13.2/firebase-app.js"></script>
     <script defer src="/__/firebase/7.13.2/firebase-analytics.js"></script>
     <script defer src="/__/firebase/7.13.2/firebase-auth.js"></script>

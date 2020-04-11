@@ -2,3 +2,14 @@ body {
     text-align:center;
     display: inline-block;
 }
+#headingLogo{
+    width: 15%;
+    height: 15%;
+}
+#heading{
+    display: inline;
+}
+
+#addFoodPage{
+    display: block;
+}
